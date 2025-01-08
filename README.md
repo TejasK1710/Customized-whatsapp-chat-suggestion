@@ -1,136 +1,77 @@
 # Customized WhatsApp Chat Suggestion
 
-## Project Overview
-This project focuses on creating an AI/ML-powered system that provides personalized chat word suggestions based on individual user preferences and chat history. The goal is to enhance the chat experience by offering context-aware and user-specific word or phrase recommendations.
-
----
+## Overview
+"Customized WhatsApp Chat Suggestion" is an AI/ML-based project designed to enhance your WhatsApp chatting experience by providing personalized word suggestions. The system learns from the user's past chats to offer tailored suggestions, making communication faster and more efficient.
 
 ## Features
-- **Personalized Suggestions**: Tailored word or phrase recommendations based on the user's past chats.
-- **Context-Aware**: Understands the ongoing conversation's context to provide relevant suggestions.
-- **Adaptable AI**: Continuously learns from user inputs and adapts to changing preferences.
-- **Privacy-Focused**: Ensures user data security and privacy by processing data locally or implementing secure encryption methods.
+- **Personalized Suggestions:** The model provides word suggestions based on individual chat history.
+- **AI/ML Integration:** Uses Natural Language Processing (NLP) techniques to analyze and predict text.
+- **Customizable Training Data:** Users can provide their exported WhatsApp chats as input to the model.
 
----
+## Requirements
+- Python 3.7+
+- Required Libraries:
+  - pandas
+  - numpy
+  - scikit-learn
+  - tensorflow/keras
+  - nltk
 
-## Technology Stack
-- **Programming Language**: Python
-- **Machine Learning Framework**: TensorFlow, PyTorch, or Scikit-learn
-- **Natural Language Processing Tools**: NLTK, SpaCy, or Hugging Face Transformers
-- **Database**: SQLite, Firebase, or PostgreSQL (for storing user preferences and chat history)
-- **Frontend**: Flask, React, or any lightweight UI framework for integration testing
+## How It Works
+1. **Chat Export:** The user exports their WhatsApp chat as a `.txt` file.
+2. **Data Preprocessing:**
+   - The exported chat file is cleaned and structured for analysis.
+   - NLP techniques are applied to tokenize and process the text.
+3. **Model Training:**
+   - A machine learning model is trained on the processed chat data.
+   - The model learns patterns and frequently used words/phrases.
+4. **Prediction:**
+   - Based on the current input text, the model predicts and suggests the next word or phrase.
 
----
-
-## Installation
-### Prerequisites
-1. Python 3.8 or later
-2. pip (Python package manager)
-3. Virtual Environment (optional but recommended)
-
-### Steps
+## Setup Instructions
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/custom-whatsapp-chat.git
-   cd custom-whatsapp-chat
+   git clone https://github.com/your-repository/customized-whatsapp-chat-suggestion.git
+   cd customized-whatsapp-chat-suggestion
    ```
-
-2. Create and activate a virtual environment:
-   ```bash
-   python -m venv env
-   source env/bin/activate  # On Windows: env\Scripts\activate
-   ```
-
-3. Install required dependencies:
+2. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
-
-4. Set up the environment variables (e.g., for database connections or API keys):
+3. Export your WhatsApp chat:
+   - Open a chat in WhatsApp.
+   - Tap on the menu (three dots) > "More" > "Export Chat."
+   - Save the exported `.txt` file.
+4. Place the exported `.txt` file in the `data/` directory.
+5. Run the preprocessing script:
    ```bash
-   cp .env.example .env
+   python preprocess_chat.py --input data/your_chat.txt --output data/processed_chat.csv
    ```
-   Update the `.env` file with your specific configurations.
-
-5. Run the application:
+6. Train the model:
    ```bash
-   python app.py
+   python train_model.py --data data/processed_chat.csv
    ```
-
----
+7. Start the suggestion system:
+   ```bash
+   python suggest.py
+   ```
 
 ## Usage
-1. Open the application in your browser or integrated chat platform.
-2. Start a chat, and observe personalized suggestions displayed as you type.
-3. Adjust settings (if available) to refine suggestions based on your preferences.
-
----
-
-## How It Works
-1. **Data Collection**:
-   - Collects anonymized chat data from the user (with consent).
-   - Stores data securely for AI training.
-
-2. **Model Training**:
-   - Uses NLP techniques to analyze user-specific patterns, tone, and frequently used phrases.
-   - Builds a lightweight model for real-time inference.
-
-3. **Real-Time Suggestions**:
-   - Processes ongoing conversation text.
-   - Provides context-aware suggestions based on the trained model.
-
----
-
-## Key Modules
-- **Data Preprocessing**: Cleans and tokenizes chat data.
-- **Model Training**: Trains or fine-tunes NLP models for personalized suggestions.
-- **Suggestion Engine**: Generates context-aware suggestions in real time.
-- **Frontend Integration**: Displays suggestions seamlessly in the chat interface.
-
----
+- After running `suggest.py`, input a sentence fragment.
+- The system will output personalized word suggestions based on your chat history.
 
 ## Future Enhancements
-- Add support for multiple languages.
-- Implement emotion detection for empathetic responses.
-- Use federated learning for enhanced privacy.
-- Integrate with popular messaging platforms like WhatsApp or Telegram.
-
----
+- Support for multiple chat formats.
+- Integration with messaging platforms for real-time suggestions.
+- Enhanced prediction accuracy using advanced models like GPT.
 
 ## Contributing
-Contributions are welcome! Follow these steps to contribute:
-1. Fork the repository.
-2. Create a new branch:
-   ```bash
-   git checkout -b feature-name
-   ```
-3. Commit your changes:
-   ```bash
-   git commit -m "Add your message here"
-   ```
-4. Push to the branch:
-   ```bash
-   git push origin feature-name
-   ```
-5. Create a pull request.
-
----
+Contributions are welcome! Feel free to fork the repository and submit pull requests.
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
----
-
-## Contact
-For any queries or suggestions, feel free to reach out:
-- **Email**: your-email@example.com
-- **GitHub**: [YourGitHubProfile](https://github.com/your-profile)
-- **LinkedIn**: [YourLinkedInProfile](https://linkedin.com/in/your-profile)
-
----
-
 ## Acknowledgments
-- OpenAI GPT for conversational AI inspiration.
-- Hugging Face for pre-trained NLP models.
-- Community contributors for making this project a success!
+- Inspired by the need for personalized AI solutions in everyday communication.
+- Thanks to the open-source NLP and ML communities for their tools and libraries.
 
